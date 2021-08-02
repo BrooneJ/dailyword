@@ -4,7 +4,7 @@
   "description": "Study foreign language and record",
   "main": "index.js",
   "scripts": {
-    "dev:server": "nodemon --exec babel-node src/index.js"
+    "dev:server": "nodemon --exec babel-node src/init.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,9 @@
     "@babel/core": "^7.14.8",
     "@babel/node": "^7.14.9",
     "express": "^4.17.1",
-    "nodemon": "^2.0.12"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.12",
+    "pug": "^3.0.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.14.9"
