@@ -1,4 +1,9 @@
 extends base.pug
+include mixins/words
 
 block content
-    h1 Hello 
+    h1 Home 
+    each word in words 
+        +words(word)
+    else
+        li not found 

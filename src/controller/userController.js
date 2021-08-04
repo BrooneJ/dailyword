@@ -1,5 +1,13 @@
+export const getLogin = (req, res) => {
+    res.render("login", { pageTitle: "Login" });
+}
+
+export const postLogin = (req, res) => {
+    res.redirect("/");
+}
+
 export const getJoin = (req, res) => {
-    res.render("join");
+    res.render("join", { pageTitle: "Join" });
 }
 
 export const postJoin = (req, res) => {
@@ -11,7 +19,7 @@ export const logout = (req, res) => {
 }
 
 export const getEdit = (req, res) => {
-    res.render("edit-profile");
+    res.render("edit-profile", { pageTitle: "User Edit" });
 }
 
 export const postEdit = (req, res) => {
@@ -20,7 +28,7 @@ export const postEdit = (req, res) => {
 
 
 export const getChangePassword = (req, res) => {
-    res.render("users/change-password");
+    res.render("users/change-password", { pageTitle: "Change Password" });
 }
 
 export const postChangePassword = (req, res) => {
@@ -28,5 +36,5 @@ export const postChangePassword = (req, res) => {
 }
 
 export const see = (req, res) => {
-    res.render("users/profile");
+    res.render("users/profile", { pageTitle: "Profile" });
 }
