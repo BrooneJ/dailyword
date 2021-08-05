@@ -1,11 +1,7 @@
-export const home = (req, res) => {
-    const words = [{
-        title: "yellow",
-        pronun: "asdfa",
-        descript: "sdfgsdfhs",
-    }]
+import Word from "../models/Word";
 
-    res.render("home", { pageTitle: "Home", words });
+export const home = (req, res) => {
+    res.render("home", { pageTitle: "Home" });
 }
 
 export const search = (req, res) => {
