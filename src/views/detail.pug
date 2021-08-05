@@ -1,4 +1,11 @@
 extends base
 
 block content
-    h1 detail 
+    h1 #{words.title}
+    span #{words.pronun}
+    br
+    span #{words.mean}
+    br
+    span #{words.example}
+
+    a(href=`${words.id}/edit`) 수정하기 &rarr;
