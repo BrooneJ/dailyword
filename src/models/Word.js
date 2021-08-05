@@ -1,11 +1,11 @@
 import mongoose, { mongo } from "mongoose";
 
 const wordSchema = new mongoose.Schema({
-    word: String,
-    pronum: String,
-    mean: String,
-    example: String,
-    createdAt: Date
+    word: { type: String, required: true, trim: true },
+    pronum: { type: String, trim: true },
+    mean: [{ type: String, trim: true }],
+    example: { type: String },
+    createdAt: { type: Date, default: Date.now, required: true }
 })
 
 const Word = mongoose.model("Word", wordSchema);

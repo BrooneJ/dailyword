@@ -24,9 +24,20 @@ export const getUpload = (req, res) => {
     res.render("upload", { pageTitle: "Upload" });
 }
 
-export const postUpload = (req, res) => {
+export const postUpload = async (req, res) => {
     const { word, pronun, mean, example } = req.body;
-    console.log(word, pronun, mean, example);
+    try {
+        await Word.create({
+            word,
+            pronun,
+            mean: mean.split(","),
+            example,
+        })
+        return res.redirect("/");
+    } catch (error) {
+        console.log(error);
+        res.render("upload", { pageTitle: "Upload", errorMessage: error._message });
+    }
     res.redirect("/");
 }
 
