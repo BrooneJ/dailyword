@@ -1,7 +1,12 @@
 import Word from "../models/Word";
 
-export const home = (req, res) => {
-    res.render("home", { pageTitle: "Home" });
+export const home = async (req, res) => {
+    try {
+        const words = await Word.find({})
+        return res.render("home", { pageTitle: "Home", words });
+    } catch {
+        res.render("home", { pageTitle: "Home" });
+    }
 }
 
 export const search = (req, res) => {

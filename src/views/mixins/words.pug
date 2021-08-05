@@ -1,5 +1,6 @@
-mixin words(info)
+mixin words(_word)
     ul 
-        li=info.title 
-        li=info.pronun 
-        li=info.descript 
+        li=_word.word
+        li=_word.pronun
+        li=_word.mean
+        li=_word.example
