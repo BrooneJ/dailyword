@@ -1,3 +1,5 @@
+import User from "../models/User";
+
 export const getLogin = (req, res) => {
     res.render("login", { pageTitle: "Login" });
 }

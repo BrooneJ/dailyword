@@ -1,5 +1,6 @@
 import "./db"
 import "./models/Word";
+import "./models/User";
 import app from "./server";
 
 const PORT = 4000;
