@@ -1,6 +1,6 @@
 mixin words(_word)
-    ul 
-        li=_word.word
-        li=_word.pronun
-        li=_word.mean
-        li=_word.example
+    a(href=`/words/${_word.id}`)=_word.word
+    div 
+        span=_word.pronun
+        span=_word.mean
+        span=_word.example
