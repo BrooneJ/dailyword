@@ -1,7 +1,7 @@
 import mongoose, { mongo } from "mongoose";
 
 const wordSchema = new mongoose.Schema({
-    word: { type: String, required: true, trim: true },
+    title: { type: String, required: true, trim: true },
     pronun: { type: String, trim: true },
     mean: [{ type: String, trim: true }],
     example: { type: String },

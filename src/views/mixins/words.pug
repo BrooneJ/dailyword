@@ -1,6 +1,6 @@
-mixin words(_word)
-    a(href=`/words/${_word.id}`)=_word.word
+mixin words(word)
+    a(href=`/words/${word.id}`)=word.title
     div 
-        span=_word.pronun
-        span=_word.mean
-        span=_word.example
+        span=word.pronun
+        span=word.mean
+        span=word.example

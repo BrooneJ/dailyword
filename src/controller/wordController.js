@@ -13,8 +13,10 @@ export const search = (req, res) => {
     res.render("search", { pageTitle: "Search" });
 }
 
-export const detail = (req, res) => {
-    res.render("detail", { pageTitle: "Word Detail" });
+export const detail = async (req, res) => {
+    const { id } = req.params;
+    const words = await Word.findById(id);
+    res.render("detail", { pageTitle: "Word Detail", words });
 }
 
 export const getEdit = (req, res) => {
@@ -30,10 +32,10 @@ export const getUpload = (req, res) => {
 }
 
 export const postUpload = async (req, res) => {
-    const { word, pronun, mean, example } = req.body;
+    const { title, pronun, mean, example } = req.body;
     try {
         await Word.create({
-            word,
+            title,
             pronun,
             mean: mean.split(","),
             example,
