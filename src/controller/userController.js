@@ -13,6 +13,8 @@ export const getJoin = (req, res) => {
 }
 
 export const postJoin = (req, res) => {
+    const { body } = req;
+    console.log(body);
     res.redirect("/");
 }
 
