@@ -4,6 +4,6 @@ block content
     form(method="POST")
         input(placeholder="단어를 입력하세요.", name="title", value=words.title, required)
         input(placeholder="발음을 입력하세요.", name="pronun", value=words.pronun, required)
-        input(placeholder="뜻을 입력하세요.", name="mean", value=words.mean, required)
+        input(placeholder="뜻을 입력하세요.", name="mean", value=words.mean.join(), required)
         textarea(placeholder="예문을 입력하세요." name="example", cols="30", rows="10")=words.example
         input(type="submit", value="수정")

@@ -4,7 +4,9 @@ block content
     h1 #{words.title}
     span 발음: #{words.pronun}
     br
-    span 뜻: #{words.mean}
+    ul 
+        each _mean in words.mean
+            li=_mean 
     br
     span 예문: #{words.example}
     br

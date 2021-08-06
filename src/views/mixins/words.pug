@@ -2,5 +2,7 @@ mixin words(word)
     a(href=`/words/${word.id}`)=word.title
     div 
         span=word.pronun
-        span=word.mean
+        ul 
+            each _word in word.mean
+                li=_word
         span=word.example

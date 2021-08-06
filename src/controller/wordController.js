@@ -30,7 +30,7 @@ export const postEdit = async (req, res) => {
     const { title, pronun, mean, example } = req.body;
     const { id } = req.params;
 
-    const word = await Word.findById(id);
+    const word = await Word.exists({ _id: id });
 
     if (!word) {
         res.status(404).redirect("/");
@@ -39,7 +39,7 @@ export const postEdit = async (req, res) => {
     await Word.findByIdAndUpdate(id, {
         title,
         pronun,
-        mean,
+        mean: mean.split(","),
         example,
     })
     return res.redirect(`/words/${id}`);
