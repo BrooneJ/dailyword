@@ -1,4 +1,12 @@
 extends base
+include mixins/words
 
 block content
     h1 Search
+    form(method="GET") 
+        input(placeholder="검색할 단어", type="text", name="keyword")
+        button 검색
+    each word in words 
+        +words(word)
+    else 
+        span 결과가 없습니다.

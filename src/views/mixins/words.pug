@@ -6,3 +6,5 @@ mixin words(word)
             each _word in word.mean
                 li=_word
         span=word.example
+        br
+        span=word.createdAt.toLocaleString()

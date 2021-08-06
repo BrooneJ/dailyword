@@ -2,15 +2,28 @@ import Word from "../models/Word";
 
 export const home = async (req, res) => {
     try {
-        const words = await Word.find({})
+        const words = await Word.find({}).sort({ createdAt: "asc" });
+        // DB에 있는 모든 단어들을 홈화면에 보여줌
+        console.log(words.createdAt);
         return res.render("home", { pageTitle: "Home", words });
     } catch {
         res.render("home", { pageTitle: "Home" });
     }
 }
 
-export const search = (req, res) => {
-    res.render("search", { pageTitle: "Search" });
+export const search = async (req, res) => {
+    const { keyword } = req.query;
+    let words = [];
+    if (words) {
+        words = await Word.find({
+            title: {
+                $regex: new RegExp(`^${keyword}`, "i"),
+                // keyword로 시작하는 부분만 찾음
+            }
+        })
+    }
+
+    res.render("search", { pageTitle: "Search", words });
 }
 
 export const detail = async (req, res) => {

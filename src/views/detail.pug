@@ -2,7 +2,8 @@ extends base
 
 block content
     h1 #{words.title}
-    span 발음: #{words.pronun}
+    if words.pronun
+        span 발음: #{words.pronun}
     br
     ul 
         each _mean in words.mean
