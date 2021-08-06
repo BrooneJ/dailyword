@@ -19,12 +19,31 @@ export const detail = async (req, res) => {
     res.render("detail", { pageTitle: "Word Detail", words });
 }
 
-export const getEdit = (req, res) => {
-    res.render("edit", { pageTitle: "Word Edit" });
+export const getEdit = async (req, res) => {
+    const { id } = req.params;
+    const words = await Word.findById(id);
+
+    res.render("edit", { pageTitle: `${words.title} Edit`, words });
 }
 
-export const postEdit = (req, res) => {
-    res.render("detail", { pageTitle: "Word Detail" });
+export const postEdit = async (req, res) => {
+    const { title, pronun, mean, example } = req.body;
+    const { id } = req.params;
+
+    const word = await Word.findById(id);
+
+    if (!word) {
+        res.status(404).redirect("/");
+    }
+
+    await Word.findByIdAndUpdate(id, {
+        title,
+        pronun,
+        mean,
+        example,
+    })
+    return res.redirect(`/words/${id}`);
+
 }
 
 export const getUpload = (req, res) => {

@@ -2,10 +2,10 @@ extends base
 
 block content
     h1 #{words.title}
-    span #{words.pronun}
+    span 발음: #{words.pronun}
     br
-    span #{words.mean}
+    span 뜻: #{words.mean}
     br
-    span #{words.example}
-
+    span 예문: #{words.example}
+    br
     a(href=`${words.id}/edit`) 수정하기 &rarr;
