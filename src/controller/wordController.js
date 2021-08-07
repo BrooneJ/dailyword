@@ -2,7 +2,7 @@ import Word from "../models/Word";
 
 export const home = async (req, res) => {
     try {
-        const words = await Word.find({}).sort({ createdAt: "asc" });
+        const words = await Word.find({}).sort({ createdAt: "desc" });
         // DB에 있는 모든 단어들을 홈화면에 보여줌
         console.log(words.createdAt);
         return res.render("home", { pageTitle: "Home", words });
@@ -40,7 +40,7 @@ export const getEdit = async (req, res) => {
 }
 
 export const postEdit = async (req, res) => {
-    const { title, pronun, mean, example } = req.body;
+    const { title, pronun, mean, example, from } = req.body;
     const { id } = req.params;
 
     const word = await Word.exists({ _id: id });
@@ -54,6 +54,7 @@ export const postEdit = async (req, res) => {
         pronun,
         mean: mean.split(","),
         example,
+        from,
     })
     return res.redirect(`/words/${id}`);
 
@@ -64,13 +65,14 @@ export const getUpload = (req, res) => {
 }
 
 export const postUpload = async (req, res) => {
-    const { title, pronun, mean, example } = req.body;
+    const { title, pronun, mean, example, from } = req.body;
     try {
         await Word.create({
             title,
             pronun,
             mean: mean.split(","),
             example,
+            from,
         })
         return res.redirect("/");
     } catch (error) {

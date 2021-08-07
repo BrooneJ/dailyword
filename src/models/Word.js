@@ -5,7 +5,8 @@ const wordSchema = new mongoose.Schema({
     pronun: { type: String, trim: true },
     mean: [{ type: String, trim: true }],
     example: { type: String },
-    createdAt: { type: Date, default: Date.now, required: true }
+    createdAt: { type: Date, default: Date.now, required: true },
+    from: { type: String, trim: true }
 })
 
 const Word = mongoose.model("Word", wordSchema);

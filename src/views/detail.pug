@@ -5,10 +5,13 @@ block content
     if words.pronun
         span 발음: #{words.pronun}
     br
+    span 의미:
     ul 
         each _mean in words.mean
             li=_mean 
     br
     span 예문: #{words.example}
+    br
+    span 출처: #{words.from}
     br
     a(href=`${words.id}/edit`) 수정하기 &rarr;
