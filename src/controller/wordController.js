@@ -4,7 +4,6 @@ export const home = async (req, res) => {
     try {
         const words = await Word.find({}).sort({ createdAt: "desc" });
         // DB에 있는 모든 단어들을 홈화면에 보여줌
-        console.log(words.createdAt);
         return res.render("home", { pageTitle: "Home", words });
     } catch {
         res.render("home", { pageTitle: "Home" });
@@ -82,7 +81,9 @@ export const postUpload = async (req, res) => {
     res.redirect("/");
 }
 
-export const deleteWord = (req, res) => {
+export const deleteWord = async (req, res) => {
+    const { id } = req.params;
+    await Word.findByIdAndDelete(id);
     res.redirect("/");
 }
 
