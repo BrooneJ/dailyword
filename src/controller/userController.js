@@ -1,10 +1,31 @@
 import User from "../models/User";
+import bcrypt from "bcrypt";
 
 export const getLogin = (req, res) => {
     res.render("login", { pageTitle: "Login" });
 }
 
-export const postLogin = (req, res) => {
+export const postLogin = async (req, res) => {
+    const { username, password } = req.body;
+
+    const user = await User.findOne({ username });
+    if (!user) {
+        return res.status(404).render("login", {
+            pageTitle: "Login",
+            errorMessage: "유저가 존재하지 않습니다.",
+        })
+    }
+
+    const ok = await bcrypt.compare(password, user.password);
+    if (!ok) {
+        return res.status(404).render("login", {
+            pageTitle: "Login",
+            errorMessage: "잘못된 비밀번호 입니다.",
+        })
+    }
+    req.session.loggedIn = true;
+    req.session.user = user;
+
     res.redirect("/");
 }
 
