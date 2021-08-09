@@ -77,8 +77,19 @@ export const getEdit = (req, res) => {
     res.render("edit-profile", { pageTitle: "User Edit" });
 }
 
-export const postEdit = (req, res) => {
-    res.redirect("/");
+export const postEdit = async (req, res) => {
+    const {
+        session: {
+            user: { _id }
+        },
+        body: { username, email }
+    } = req;
+    console.log(username);
+    await User.findByIdAndUpdate(_id, {
+        username,
+        email,
+    })
+    return res.render("edit-profile");
 }
 
 

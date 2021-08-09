@@ -2,6 +2,6 @@ extends base.pug
 
 block content 
     form(method="POST") 
-        input(placeholder="Username", name="username", type="text", required)
-        input(placeholder="Email", name="email", type="text", required)
+        input(placeholder="Username", name="username", value=loggedInUser.username, type="text", required)
+        input(placeholder="Email", name="email", value=loggedInUser.email, type="text", required)
         input(type="submit", value="변경")
