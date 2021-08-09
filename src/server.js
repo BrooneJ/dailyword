@@ -5,6 +5,7 @@ import session from "express-session";
 import globalRouter from "./router/globalRouter";
 import userRouter from "./router/userRouter";
 import wordRouter from "./router/wordRouter";
+import { localsMiddleware } from "./middlewares";
 
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(session({
     saveUninitialized: true,
 }))
 
+app.use(localsMiddleware);
 app.use("/", globalRouter);
 app.use("/users", userRouter);
 app.use("/words", wordRouter);

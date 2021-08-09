@@ -4,9 +4,15 @@ header
         ul 
             li 
                 a(href="/search") Search 
-            li
-                a(href="/join") Join 
-            li 
-                a(href="/login") Login
-            li 
-                a(href="/words/upload") Upload
+            if loggedIn
+                li 
+                    a(href="/words/upload") Upload
+                li 
+                    a(href="/users/logout") Logout 
+                li 
+                    a(href="/users/edit") Edit-Profile 
+            else 
+                li
+                    a(href="/join") Join 
+                li 
+                    a(href="/login") Login
