@@ -19,8 +19,8 @@ app.use(logger);
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: process.env.COOKIE_SECRET,
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false, // 로그인 하는 유저만 DB에 기록
     store: MongoStore.create({ mongoUrl: process.env.DB_URL })
 }))
 
