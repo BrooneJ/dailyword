@@ -70,7 +70,8 @@ export const postJoin = async (req, res) => {
 }
 
 export const logout = (req, res) => {
-    res.redirect("/");
+    req.session.destroy();
+    return res.redirect("/");
 }
 
 export const getEdit = (req, res) => {
