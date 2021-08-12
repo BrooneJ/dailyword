@@ -64,9 +64,10 @@ export const getUpload = (req, res) => {
 }
 
 export const postUpload = async (req, res) => {
-    const { title, pronun, mean, example, from } = req.body;
+    const { language, title, pronun, mean, example, from } = req.body;
     try {
         await Word.create({
+            language,
             title,
             pronun,
             mean: mean.split(","),

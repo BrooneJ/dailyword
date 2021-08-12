@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const wordSchema = new mongoose.Schema({
+    language: { type: String },
     title: { type: String, required: true, trim: true },
     pronun: { type: String, trim: true },
     mean: [{ type: String, trim: true }],
