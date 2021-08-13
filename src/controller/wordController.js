@@ -1,10 +1,29 @@
 import Word from "../models/Word";
 
 export const home = async (req, res) => {
+    const page = parseInt(req.query.page || 1, 5);
+
+    const nowPage = parseInt(req.query.page);
+
+    let start = Math.floor(nowPage / 10) * 10;
+    if (start === 0) {
+        start = 1;
+    }
+    let end = Math.ceil(nowPage / 10) * 10;
+
+    console.log(start, end);
+
+    if (page < 1) {
+        return res.sendStatus(404);
+    }
+
     try {
-        const words = await Word.find({}).sort({ createdAt: "desc" });
+        const words = await Word.find({}).sort({ createdAt: "desc" }).limit(5).skip((page - 1) * 5);
         // DB에 있는 모든 단어들을 홈화면에 보여줌
-        return res.render("home", { pageTitle: "Home", words });
+        const postCount = await Word.count();
+        const lastPage = Math.ceil(postCount / 5);
+        end = end > lastPage ? lastPage : end;
+        return res.render("home", { pageTitle: "Home", words, start, end, nowPage });
     } catch {
         res.render("home", { pageTitle: "Home" });
     }

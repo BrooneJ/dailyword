@@ -7,3 +7,12 @@ block content
         +words(word)
     else
         li not found 
+
+    if nowPage != 1
+        a(href=`?page=${nowPage - 1}`) &larr;
+
+    - for(var i=start; i<=end ; i++)
+        a(href=`?page=${i}`)=i
+
+    if nowPage != lastPage
+        a(href=`?page=${nowPage + 1}`) &rarr;
