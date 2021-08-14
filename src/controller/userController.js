@@ -99,7 +99,25 @@ export const getChangePassword = (req, res) => {
     res.render("users/change-password", { pageTitle: "Change Password" });
 }
 
-export const postChangePassword = (req, res) => {
+export const postChangePassword = async (req, res) => {
+    const { oldpassword, newpassword, checknewpassword } = req.body;
+    const { session: { user: { _id, password } } } = req;
+
+    // 비밀번호가 틀릴 경우
+    const ok = await bcrypt.compare(oldpassword, password);
+    if (!ok) {
+        return res.status(404).render("users/change-password", { pageTitle: "Change Password", errorMessage: "비밀번호가 일치하지 않습니다." })
+    }
+
+    // 확인 비밀번호가 일치 하지 않을 경우
+    if (newpassword !== checknewpassword) {
+        return res.status(404).render("users/change-password", { pageTitle: "Change Password", errorMessage: "새 비밀번호와 확인 비밀번호가 일치하지 않습니다." });
+    }
+
+    // 유저 id를 찾아서 비밀번호 변경
+    const userinfo = await User.findById(_id);
+    userinfo.password = newpassword;
+    await userinfo.save();
     res.redirect("/")
 }
 
