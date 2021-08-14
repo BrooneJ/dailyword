@@ -14,5 +14,5 @@ block content
     - for(var i=start; i<=end ; i++)
         a(href=`?page=${i}`)=i
 
-    if nowPage != lastPage
+    if nowPage != end 
         a(href=`?page=${nowPage + 1}`) &rarr;
