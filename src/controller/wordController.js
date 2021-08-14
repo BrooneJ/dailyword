@@ -2,11 +2,11 @@ import Word from "../models/Word";
 
 export const home = async (req, res) => {
     let nowPage = parseInt(req.query.page || 1);
-
-    let start = Math.floor(nowPage / 10) * 10;
-    if (start === 0) {
-        start = 1;
+    let startPage = nowPage;
+    if (!(nowPage % 10)) {
+        startPage = nowPage - 1;
     }
+    let start = Math.floor(startPage / 10) * 10;
     let end = Math.ceil(nowPage / 10) * 10;
 
     if (nowPage < 1) {
@@ -20,7 +20,7 @@ export const home = async (req, res) => {
         const lastPage = Math.ceil(postCount / 5);
         end = end > lastPage ? lastPage : end;
 
-        return res.render("home", { pageTitle: "Home", words, start, end, nowPage });
+        return res.render("home", { pageTitle: "Home", words, start, end, nowPage, lastPage });
     } catch {
         res.render("home", { pageTitle: "Home" });
     }

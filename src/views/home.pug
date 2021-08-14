@@ -11,8 +11,8 @@ block content
     if nowPage != 1
         a(href=`?page=${nowPage - 1}`) &larr;
 
-    - for(var i=start; i<=end ; i++)
+    - for(var i=start+1; i<=end ; i++)
         a(href=`?page=${i}`)=i
 
-    if nowPage != end 
+    if nowPage != lastPage 
         a(href=`?page=${nowPage + 1}`) &rarr;
