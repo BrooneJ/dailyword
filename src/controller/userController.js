@@ -123,6 +123,10 @@ export const postChangePassword = async (req, res) => {
     res.redirect("/")
 }
 
-export const see = (req, res) => {
-    res.render("users/profile", { pageTitle: "Profile" });
+export const see = async (req, res) => {
+    const { id } = req.params;
+    const words = await User.findById(id).populate("words");
+    console.log(words);
+
+    return res.render("users/profile", { pageTitle: "Profile", words });
 }

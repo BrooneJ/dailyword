@@ -7,7 +7,12 @@ const wordSchema = new mongoose.Schema({
     mean: [{ type: String, trim: true }],
     example: { type: String },
     createdAt: { type: Date, default: Date.now, required: true },
-    from: { type: String, trim: true }
+    from: { type: String, trim: true },
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: "User",
+    }
 })
 
 const Word = mongoose.model("Word", wordSchema);

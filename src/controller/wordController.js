@@ -1,3 +1,4 @@
+import User from "../models/User";
 import Word from "../models/Word";
 
 export const home = async (req, res) => {
@@ -44,8 +45,11 @@ export const search = async (req, res) => {
 
 export const detail = async (req, res) => {
     const { id } = req.params;
-    const words = await Word.findById(id);
-    res.render("detail", { pageTitle: "Word Detail", words });
+    const words = await Word.findById(id).populate("owner");
+    if (!words) {
+        return res.status(404).render("404", { pageTitle: "Word not found." })
+    }
+    res.render("detail", { pageTitle: words.title, words });
 }
 
 export const getEdit = async (req, res) => {
@@ -82,22 +86,25 @@ export const getUpload = (req, res) => {
 
 export const postUpload = async (req, res) => {
     const { language, title, pronun, mean, example, from } = req.body;
+    const { user: { _id } } = req.session;
     try {
-        await Word.create({
+        const newWord = await Word.create({
             language,
             title,
             pronun,
             mean: mean.split(","),
             example,
             from,
+            owner: _id,
         })
-
+        const user = await User.findById(_id);
+        user.words.push(newWord);
+        user.save();
         return res.redirect("/");
     } catch (error) {
         console.log(error);
         res.render("upload", { pageTitle: "Upload", errorMessage: error._message });
     }
-    res.redirect("/");
 }
 
 export const deleteWord = async (req, res) => {
