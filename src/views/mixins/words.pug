@@ -1,12 +1,15 @@
 mixin words(word)
     a(href=`/words/${word.id}`)=word.title
     div 
-        span=word.pronun
+        if word.pronun
+            span 발음: #{word.pronun}
+        br
+        span 의미:
         ol 
-            each _word in word.mean
-                li=_word
-        span=word.example
+            each _mean in word.mean
+                li=_mean 
         br
-        span=word.createdAt.toLocaleString()
+        span 예문:
+        span #{word.example[0]} 
+        a(href=`/words/${word.id}`) &rarr;
         br
-        span=word.from

@@ -1,4 +1,8 @@
-extends base
+extends ../base
+include ../mixins/words
 
 block content
-    h1 Profile
+    each word in words 
+        +words(word)
+    else
+        li not found 

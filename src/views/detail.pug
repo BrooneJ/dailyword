@@ -6,12 +6,16 @@ block content
         span 발음: #{words.pronun}
     br
     span 의미:
-    ul 
+    ol 
         each _mean in words.mean
             li=_mean 
     br
-    span 예문: #{words.example}
+    span 예문:
+    ol 
+        each _example in words.example
+            li=_example 
     br
+
     span 출처: #{words.from}
     br
     span 작성자: #{words.owner.username}

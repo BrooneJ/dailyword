@@ -49,7 +49,7 @@ export const detail = async (req, res) => {
     if (!words) {
         return res.status(404).render("404", { pageTitle: "Word not found." })
     }
-    res.render("detail", { pageTitle: words.title, words });
+    return res.render("detail", { pageTitle: words.title, words });
 }
 
 export const getEdit = async (req, res) => {
@@ -73,7 +73,7 @@ export const postEdit = async (req, res) => {
         title,
         pronun,
         mean: mean.split(","),
-        example,
+        example: example.split(","),
         from,
     })
     return res.redirect(`/words/${id}`);
@@ -93,7 +93,7 @@ export const postUpload = async (req, res) => {
             title,
             pronun,
             mean: mean.split(","),
-            example,
+            example: example.split(","),
             from,
             owner: _id,
         })

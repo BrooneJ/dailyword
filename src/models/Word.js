@@ -5,7 +5,7 @@ const wordSchema = new mongoose.Schema({
     title: { type: String, required: true, trim: true },
     pronun: { type: String, trim: true },
     mean: [{ type: String, trim: true }],
-    example: { type: String },
+    example: [{ type: String, trim: true }],
     createdAt: { type: Date, default: Date.now, required: true },
     from: { type: String, trim: true },
     owner: {
