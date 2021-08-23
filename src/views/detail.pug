@@ -20,7 +20,8 @@ block content
     br
     span 작성자: #{words.owner.username}
     br
-    if String(words.owner.id) === String(loggedInUser._id)
-        a(href=`${words.id}/edit`) 수정하기 &rarr;
-        br
-        a(href=`${words.id}/delete`) 삭제하기 &rarr;
+    if loggedIn     
+        if String(words.owner.id) === String(loggedInUser._id)
+            a(href=`${words.id}/edit`) 수정하기 &rarr;
+            br
+            a(href=`${words.id}/delete`) 삭제하기 &rarr;
