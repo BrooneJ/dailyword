@@ -54,6 +54,7 @@ export const postJoin = async (req, res) => {
 
     try {
         await User.create({
+            avatarUrl: "uploads/avatars/default_img.png",
             username,
             email,
             password,
@@ -125,8 +126,8 @@ export const postChangePassword = async (req, res) => {
 
 export const see = async (req, res) => {
     const { id } = req.params;
-    const words = await User.findById(id).populate("words");
-    console.log(words);
+    const wordsData = await User.findById(id).populate({ path: "words", options: { sort: { createdAt: "desc" } } });
+    // const wordsData = await User.findById(id).populate("words");
 
-    return res.render("users/profile", { pageTitle: "Profile", words });
+    return res.render("users/profile", { pageTitle: "Profile", words: wordsData.words });
 }
