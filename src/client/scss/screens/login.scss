@@ -1,5 +1,6 @@
 form {
-    max-width: 420px;
+    max-width: 85%;
+    // max-width: 30rem;
     margin: 0 auto;
     margin-top: 150px;
     padding: 30px;
@@ -13,8 +14,10 @@ input {
     padding: 15px 20px;
     border-radius: 5px;
     border: 1px solid rgba(45, 45, 45, 0.2); 
+    background-color: #E5E5E5;
     margin-bottom: 15px;
-    font-size: 16px;
+    margin-top: 5px;
+    font-size: 25px;
     color: black;
     width: 90%;
     &::placeholder {

@@ -60,6 +60,7 @@ header {
   background-color: grey;
   display: flex;
   justify-content: center;
+  align-items: center;
   z-index: 10;
   font-weight: 600;
 }
@@ -144,7 +145,7 @@ footer nav ul li img {
   border-radius: 15px;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
-  background-color: gray;
+  background-color: #a7a7a7;
   position: absolute;
   bottom: -1px;
   left: -1px;
@@ -163,8 +164,8 @@ footer nav ul li img {
 }
 
 main {
-  margin-top: 120px;
-  margin-bottom: 130px;
+  max-width: 800px;
+  margin: 120px auto;
   width: 100%;
 }
 
@@ -194,7 +195,7 @@ main {
 }
 
 form {
-  max-width: 420px;
+  max-width: 85%;
   margin: 0 auto;
   margin-top: 150px;
   padding: 30px;
@@ -208,8 +209,10 @@ input {
   padding: 15px 20px;
   border-radius: 5px;
   border: 1px solid rgba(45, 45, 45, 0.2);
+  background-color: #E5E5E5;
   margin-bottom: 15px;
-  font-size: 16px;
+  margin-top: 5px;
+  font-size: 25px;
   color: black;
   width: 90%;
 }
@@ -236,6 +239,89 @@ input[type=submit] {
 }
 .auth-switch a {
   text-decoration: underline;
+}
+
+.labelSelect {
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+}
+.labelSelect label {
+  margin-bottom: 20px;
+}
+
+select {
+  width: 96%;
+  padding: 15px;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+textarea {
+  width: 95.5%;
+  font-size: 25px;
+}
+
+.detailTP {
+  display: flex;
+  align-items: center;
+  padding-bottom: 30px;
+  border-bottom: 2px solid black;
+  margin-bottom: 40px;
+}
+.detailTP .detailTitle {
+  font-size: 5vw;
+  font-weight: 800;
+}
+.detailTP .detailPronun {
+  font-size: 4.5vw;
+}
+
+.meanSet {
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #bdbdbd;
+  margin-bottom: 40px;
+}
+.meanSet .detailMean {
+  font-size: 2.5vw;
+  margin-right: 60px;
+}
+.meanSet ol {
+  font-size: 2.5vw;
+}
+.meanSet ol li {
+  padding-bottom: 10px;
+}
+
+.exampleSet {
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #bdbdbd;
+}
+.exampleSet span {
+  font-size: 2vw;
+  margin-right: 60px;
+}
+.exampleSet ol {
+  font-size: 2vw;
+}
+.exampleSet ol li {
+  padding-bottom: 20px;
+}
+
+.detailInfor {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  margin-top: 5px;
+}
+.detailInfor span {
+  text-align: end;
+  margin: 5px;
+  padding: 3px;
 }
 
 a {

@@ -8,9 +8,13 @@ block content
         input(placeholder="Email", name="email", type="text", required)
         input(placeholder="Password", name="password" type="password", required)
         input(placeholder="Confirm Password", name="password2" type="password", required)
-        label(for="language") 모국어
-        select(name="language") 
-            option(value="korean") Korean 
-            option(value="japanese") Japanese
-            option(value="english") English 
+        div.labelSelect
+            label(for="language") 모국어
+            select(name="language") 
+                option(value="korean") Korean 
+                option(value="japanese") Japanese
+                option(value="english") English 
         input(type="submit", value="등록")
+    div.auth-switch
+        span 아이디가 있으신가요?
+        a(href="/login") Login Now &rarr;

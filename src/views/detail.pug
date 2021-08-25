@@ -1,27 +1,25 @@
 extends base
 
 block content
-    h1 #{words.title}
-    if words.pronun
-        span 발음: #{words.pronun}
-    br
-    span 의미:
-    ol 
-        each _mean in words.mean
-            li=_mean 
-    br
-    span 예문:
-    ol 
-        each _example in words.example
-            li=_example 
-    br
-
-    span 출처: #{words.from}
-    br
-    span 작성자: #{words.owner.username}
-    br
+    div.detailTP
+        h1.detailTitle #{words.title}
+        if words.pronun
+            span.detailPronun [#{words.pronun}]       
+    div.meanSet
+        span.detailMean 뜻:
+        ol 
+            each _mean in words.mean
+                li=_mean 
+    div.exampleSet
+        span 예문:
+        ol 
+            each _example in words.example
+                li=_example 
+    div.detailInfor                
+        span 출처: #{words.from}
+        span 작성자: #{words.owner.username}
     if loggedIn     
         if String(words.owner.id) === String(loggedInUser._id)
-            a(href=`${words.id}/edit`) 수정하기 &rarr;
-            br
-            a(href=`${words.id}/delete`) 삭제하기 &rarr;
+            div.detailBtn
+                a(href=`${words.id}/edit`) 수정하기 &rarr;
+                a(href=`${words.id}/delete`) 삭제하기 &rarr;

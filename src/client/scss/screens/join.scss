@@ -1,0 +1,15 @@
+.labelSelect {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    label {
+        margin-bottom: 20px;
+    }
+}
+
+select {
+    width: 96%;
+    padding: 15px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
