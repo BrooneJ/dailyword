@@ -54,10 +54,19 @@
     display: flex;
     flex-direction: column;
     font-size: 15px;
-    margin-top: 5px;
+    margin: 5px 5px;
     span {
         text-align: end;
         margin: 5px;
         padding: 3px;
+    }
+}
+
+.detailBtn {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    button {
+        padding: 15px;
     }
 }
