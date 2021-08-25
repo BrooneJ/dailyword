@@ -1,1 +1,21 @@
-footer &copy; #{new Date().getFullYear()} Daily word 
+footer 
+    nav 
+        ul 
+            li 
+                a(href="/") 
+                    i.fas.fa-home
+                a(href="/search") 
+                    i.fas.fa-search
+                a(href="/words/upload")    
+                    i.fas.fa-pencil-alt
+            if loggedIn               
+                li 
+                    a(href=`/users/${loggedInUser._id}`)
+                        if loggedInUser.avatarUrl === ""
+                            span 😀
+                        else 
+                            img(src="/" + loggedInUser.avatarUrl width="50", height="50")
+            else 
+                li 
+                    a(href="/login")
+                        i.fas.fa-user

@@ -1,24 +1,2 @@
-header 
-    a(href="/") Home 
-    nav 
-        ul 
-            li 
-                a(href="/search") Search 
-            if loggedIn
-                li 
-                    a(href="/words/upload") Upload
-                li 
-                    a(href="/users/edit") Edit-Profile 
-                li 
-                    a(href="/users/logout") Logout 
-                li 
-                    a(href=`/users/${loggedInUser._id}`)
-                        if loggedInUser.avatarUrl === ""
-                            span 😀
-                        else 
-                            img(src="/" + loggedInUser.avatarUrl width="50", height="50")
-            else 
-                li
-                    a(href="/join") Join 
-                li 
-                    a(href="/login") Login
+header
+    span #{pageTitle}

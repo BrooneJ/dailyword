@@ -1,15 +1,21 @@
 mixin words(word)
-    a(href=`/words/${word.id}`)=word.title
-    div 
-        if word.pronun
-            span 발음: #{word.pronun}
-        br
-        span 의미:
-        ol 
-            each _mean in word.mean
-                li=_mean 
-        br
-        span 예문:
-        span #{word.example[0]} 
-        a(href=`/words/${word.id}`) &rarr;
-        br
+    div.wordContainer
+        div.wordTP
+            a.wordTitle(href=`/words/${word.id}`)=word.title
+            if word.pronun
+                span.wordPronun [ #{word.pronun} ]
+        div.wordBox 
+            div.wordMean
+                span 의미:
+                span #{word.mean[0]}
+                //- ol 
+                //-     each _mean in word.mean
+                //-         li=_mean 
+            div.wordExample
+                span 예문:
+                span #{word.example[0]} 
+        div.wordInfor                
+            span 출처: #{word.from}
+            span
+                a(href=`/words/${word.id}`) 자세히 보기 &rarr;
+            

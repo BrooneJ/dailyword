@@ -1,0 +1,70 @@
+.wordBox {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-top: 10px;
+    div {
+        margin: 5px;
+    }
+}
+
+.wordTP {
+    display: flex;
+}
+
+.wordTitle{
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.wordPronun {
+    font-size: 40px;
+}
+
+.wordMean {
+    margin-top: 13px;
+    span {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    // ol {        
+    //     li {
+    //         margin: 3px;
+    //     }
+    // }
+    display: flex;
+}
+
+.wordExample {
+    margin-top: 13px;
+    span {
+        font-size: 15px;
+        margin-right: 10px;
+    }
+}
+
+.wordInfor {
+    width: 100%;
+    height: 30%;
+    border: 1px solid black;
+    border-radius: 15px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    background-color: gray;
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span {
+        font-size: 20px;
+        padding-left: 40px;
+        padding-right: 40px;
+        &:last-child{
+            font-size: 25px;
+            font-weight: 700;
+        }
+    }
+}
