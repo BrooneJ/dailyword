@@ -1,22 +1,25 @@
 footer {
-    height: 100px;
+    height: 7vh;
     background-color: gray;
-    font-size: 70px;
+    font-size: 4vh;
     position: fixed;
     bottom: 0;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     nav {
+        
         ul{
             display: flex;
             justify-content: center;        
-            
+            align-items: center;            
             li {
                 display: flex;
                 justify-content: space-around;
                 i, img{  
-                    padding-top: 15px;
-                    padding-right: 85px;
-                    padding-left: 85px;
+                    padding-right: 5rem;
+                    padding-left: 5rem;
                 }
                 i {
                     color: white;
@@ -25,8 +28,9 @@ footer {
                     }
                 }
                 img {
-                    height: 70px;
-                    width: 70px;
+                    margin-top: 0.6vh;
+                    height: 4.5vh;
+                    width: 4.5vh;
                 }
             }
         }
