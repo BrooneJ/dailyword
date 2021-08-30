@@ -1,6 +1,8 @@
 .wordTPT {
     display: grid;
-    grid-template-columns: 6fr max-content;
+    grid-template-columns: 10fr max-content;
+    // display: flex;
+    // justify-content: space-between;
     height: 30%;
     margin-bottom: 15px;
     word-break:break-all;
@@ -16,7 +18,6 @@
 .wordTitle{
     font-size: 50px;
     font-weight: 600;
-    overflow: hidden;
 }
 
 .wordPronun {
@@ -25,6 +26,7 @@
 
 .wordTime{
     color: rgb(167, 167, 167);
+    text-align: end;
 }
 
 .wordBox {
@@ -93,4 +95,7 @@
             font-weight: 700;
         }
     }
+}
+.wordInfor span:last-child{
+    text-align: end;
 }

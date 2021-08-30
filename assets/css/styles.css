@@ -59,10 +59,18 @@ header {
   font-size: 5vh;
   background-color: grey;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 10;
   font-weight: 600;
+}
+header span {
+  max-width: 800px;
+  width: 70%;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 footer {
@@ -103,7 +111,7 @@ footer nav ul li img {
 
 .wordTPT {
   display: grid;
-  grid-template-columns: 6fr max-content;
+  grid-template-columns: 10fr max-content;
   height: 30%;
   margin-bottom: 15px;
   word-break: break-all;
@@ -119,7 +127,6 @@ footer nav ul li img {
 .wordTitle {
   font-size: 50px;
   font-weight: 600;
-  overflow: hidden;
 }
 
 .wordPronun {
@@ -128,6 +135,7 @@ footer nav ul li img {
 
 .wordTime {
   color: #a7a7a7;
+  text-align: end;
 }
 
 .wordBox {
@@ -187,6 +195,10 @@ footer nav ul li img {
 .wordInfor span:last-child {
   font-size: 25px;
   font-weight: 700;
+}
+
+.wordInfor span:last-child {
+  text-align: end;
 }
 
 main {
@@ -290,17 +302,19 @@ textarea {
 
 .detailTP {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  word-break: break-all;
   padding-bottom: 30px;
   border-bottom: 2px solid black;
   margin-bottom: 40px;
 }
 .detailTP .detailTitle {
-  font-size: 5vw;
+  font-size: 5vh;
   font-weight: 800;
 }
 .detailTP .detailPronun {
-  font-size: 4.5vw;
+  font-size: 4.5vh;
 }
 
 .meanSet {
@@ -311,11 +325,11 @@ textarea {
   margin-bottom: 40px;
 }
 .meanSet .detailMean {
-  font-size: 2.5vw;
+  font-size: 2.5vh;
   margin-right: 60px;
 }
 .meanSet ol {
-  font-size: 2.5vw;
+  font-size: 2.5vh;
 }
 .meanSet ol li {
   padding-bottom: 10px;
@@ -324,15 +338,16 @@ textarea {
 .exampleSet {
   display: flex;
   align-items: flex-start;
+  word-break: break-all;
   padding-bottom: 30px;
   border-bottom: 2px solid #bdbdbd;
 }
 .exampleSet span {
-  font-size: 2vw;
+  font-size: 2vh;
   margin-right: 60px;
 }
 .exampleSet ol {
-  font-size: 2vw;
+  font-size: 2vh;
 }
 .exampleSet ol li {
   padding-bottom: 20px;
@@ -341,7 +356,7 @@ textarea {
 .detailInfor {
   display: flex;
   flex-direction: column;
-  font-size: 15px;
+  font-size: 1.2vh;
   margin: 5px 5px;
 }
 .detailInfor span {
@@ -352,11 +367,22 @@ textarea {
 
 .detailBtn {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: flex-end;
 }
 .detailBtn button {
-  padding: 15px;
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  padding: 0.5vh 2vw;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  font-size: 2vh;
 }
 
 a {

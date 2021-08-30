@@ -15,8 +15,9 @@ block content
         ol 
             each _example in words.example
                 li=_example 
-    div.detailInfor                
-        span 출처: #{words.from}
+    div.detailInfor  
+        if words.from              
+            span 출처: #{words.from}
         span 작성자: #{words.owner.username}
     if loggedIn     
         if String(words.owner.id) === String(loggedInUser._id)

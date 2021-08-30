@@ -56,7 +56,7 @@ export const getEdit = async (req, res) => {
     const { id } = req.params;
     const words = await Word.findById(id);
 
-    res.render("edit", { pageTitle: `${words.title} Edit`, words });
+    res.render("edit", { pageTitle: `${words.title}`, words });
 }
 
 export const postEdit = async (req, res) => {

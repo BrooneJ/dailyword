@@ -5,8 +5,7 @@ mixin words(word)
                 a.wordTitle(href=`/words/${word.id}`)=word.title
                 if word.pronun
                     span.wordPronun [ #{word.pronun} ]
-            div.wordTime 
-                span=word.createdAt.toLocaleDateString()
+            span.wordTime=word.createdAt.toLocaleDateString()
         div.wordBox 
             div.wordMean
                 span 의미:
