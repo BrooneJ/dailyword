@@ -1,52 +1,78 @@
-.wordBox {
-    background-color: whitesmoke;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    margin-top: 10px;
-    div {
-        margin: 5px;
-    }
+.wordTPT {
+    display: grid;
+    grid-template-columns: 6fr max-content;
+    height: 30%;
+    margin-bottom: 15px;
+    word-break:break-all;
+    text-justify: auto;
 }
 
 .wordTP {
-    display: flex;
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .wordTitle{
     font-size: 50px;
     font-weight: 600;
+    overflow: hidden;
 }
 
 .wordPronun {
     font-size: 40px;
 }
 
+.wordTime{
+    color: rgb(167, 167, 167);
+}
+
+.wordBox {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 60px;
+    div {
+        margin: 5px;
+    }
+}
+
 .wordMean {
+    display: grid;
+    grid-template-columns: max-content 5fr;
     margin-top: 13px;
+    word-break:break-all;
     span {
         font-size: 20px;
-        margin-right: 10px;
+        // font-size: 2vh;
+        margin-right: 0.5vw;
+        // margin-right: 5px;
     }
     // ol {        
     //     li {
     //         margin: 3px;
     //     }
     // }
-    display: flex;
 }
 
 .wordExample {
+    display: grid;
+    grid-template-columns: max-content 5fr;
     margin-top: 13px;
+    word-break:break-all;
     span {
-        font-size: 15px;
-        margin-right: 10px;
+        font-size: 18px;
+        // font-size: 1.8vh;
+        margin-right: 0.5vw;
+        // margin-right: 10px;
     }
 }
 
 .wordInfor {
     width: 100%;
-    height: 30%;
+    height: 4em;
     border: 1px solid black;
     border-radius: 15px;
     border-top-left-radius: 0px;

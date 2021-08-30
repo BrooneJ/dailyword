@@ -1,9 +1,12 @@
 mixin words(word)
     div.wordContainer
-        div.wordTP
-            a.wordTitle(href=`/words/${word.id}`)=word.title
-            if word.pronun
-                span.wordPronun [ #{word.pronun} ]
+        div.wordTPT
+            div.wordTP
+                a.wordTitle(href=`/words/${word.id}`)=word.title
+                if word.pronun
+                    span.wordPronun [ #{word.pronun} ]
+            div.wordTime 
+                span=word.createdAt.toLocaleDateString()
         div.wordBox 
             div.wordMean
                 span 의미:
@@ -14,8 +17,10 @@ mixin words(word)
             div.wordExample
                 span 예문:
                 span #{word.example[0]} 
-        div.wordInfor                
-            span 출처: #{word.from}
+        div.wordInfor   
+            if word.from             
+                span 출처: #{word.from}
+            span 
             span
                 a(href=`/words/${word.id}`) 자세히 보기 &rarr;
             

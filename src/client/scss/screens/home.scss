@@ -1,9 +1,10 @@
 .wordContainer{
     margin: 40px;
     padding: 20px;
+    // padding-bottom: 15%;
     border: solid 1px black;
     border-radius: 15px;
-    height: 13rem;
+    min-height: 13rem;
     box-shadow: 5px 5px 15px gray;
     position: relative;
 }

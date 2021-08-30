@@ -101,50 +101,72 @@ footer nav ul li img {
   width: 4.5vh;
 }
 
-.wordBox {
-  background-color: whitesmoke;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  margin-top: 10px;
-}
-.wordBox div {
-  margin: 5px;
+.wordTPT {
+  display: grid;
+  grid-template-columns: 6fr max-content;
+  height: 30%;
+  margin-bottom: 15px;
+  word-break: break-all;
+  text-justify: auto;
 }
 
 .wordTP {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .wordTitle {
   font-size: 50px;
   font-weight: 600;
+  overflow: hidden;
 }
 
 .wordPronun {
   font-size: 40px;
 }
 
-.wordMean {
-  margin-top: 13px;
+.wordTime {
+  color: #a7a7a7;
+}
+
+.wordBox {
+  background-color: whitesmoke;
   display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 60px;
+}
+.wordBox div {
+  margin: 5px;
+}
+
+.wordMean {
+  display: grid;
+  grid-template-columns: max-content 5fr;
+  margin-top: 13px;
+  word-break: break-all;
 }
 .wordMean span {
   font-size: 20px;
-  margin-right: 10px;
+  margin-right: 0.5vw;
 }
 
 .wordExample {
+  display: grid;
+  grid-template-columns: max-content 5fr;
   margin-top: 13px;
+  word-break: break-all;
 }
 .wordExample span {
-  font-size: 15px;
-  margin-right: 10px;
+  font-size: 18px;
+  margin-right: 0.5vw;
 }
 
 .wordInfor {
   width: 100%;
-  height: 30%;
+  height: 4em;
   border: 1px solid black;
   border-radius: 15px;
   border-top-left-radius: 0px;
@@ -184,7 +206,7 @@ main {
   padding: 20px;
   border: solid 1px black;
   border-radius: 15px;
-  height: 13rem;
+  min-height: 13rem;
   box-shadow: 5px 5px 15px gray;
   position: relative;
 }
