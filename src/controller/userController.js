@@ -129,5 +129,5 @@ export const see = async (req, res) => {
     const wordsData = await User.findById(id).populate({ path: "words", options: { sort: { createdAt: "desc" } } });
     // const wordsData = await User.findById(id).populate("words");
 
-    return res.render("users/profile", { pageTitle: "Profile", words: wordsData.words });
+    return res.render("users/profile", { pageTitle: "My Word", words: wordsData.words });
 }
