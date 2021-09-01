@@ -15,10 +15,17 @@ footer
                     else 
                         img.AvatarImg(src="/" + loggedInUser.avatarUrl width="50", height="50")
                         div.modal.hidden
+                            div.bg
                             div.modalBox
-                                a(href=`/users/${loggedInUser._id}`) My word 
-                                a(href="/users/edit") Edit Profile 
-                                a(href="/users/logout") Logout 
+                                a(href=`/users/${loggedInUser._id}`) 
+                                    i.fas.fa-edit 
+                                    span My word 
+                                a(href="/users/edit") 
+                                    i.fas.fa-user-edit 
+                                    span Edit Profile 
+                                a(href="/users/logout") 
+                                    i.fas.fa-sign-out-alt 
+                                    span Logout 
             else 
                 li 
                     a(href="/login")

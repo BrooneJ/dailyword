@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scs
   \********************************/
 /***/ (() => {
 
-eval("var avatarImg = document.querySelector('.AvatarImg');\nvar modal = document.querySelector(\".modal\");\n\nif (avatarImg) {\n  avatarImg.onclick = function () {\n    modal.classList.toggle('hidden');\n  };\n}\n\n//# sourceURL=webpack://dailyword/./src/client/js/modal.js?");
+eval("var avatarImg = document.querySelector('.AvatarImg');\nvar modal = document.querySelector(\".modal\");\n\nif (avatarImg) {\n  avatarImg.onclick = function () {\n    modal.classList.toggle('hidden');\n  };\n\n  var close = function close() {\n    modal.classList.add('hidden');\n  };\n\n  document.querySelector('.bg').addEventListener('click', close);\n}\n\n//# sourceURL=webpack://dailyword/./src/client/js/modal.js?");
 
 /***/ }),
 

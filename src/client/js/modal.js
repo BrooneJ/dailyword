@@ -5,4 +5,10 @@ if (avatarImg) {
     avatarImg.onclick = () => {
         modal.classList.toggle('hidden');
     }
+
+    const close = () => {
+        modal.classList.add('hidden');
+    }
+
+    document.querySelector('.bg').addEventListener('click', close);
 }
