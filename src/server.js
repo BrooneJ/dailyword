@@ -6,6 +6,7 @@ import MongoStore from "connect-mongo";
 import globalRouter from "./router/globalRouter";
 import userRouter from "./router/userRouter";
 import wordRouter from "./router/wordRouter";
+import apiRouter from "./router/apiRouter";
 import { localsMiddleware } from "./middlewares";
 
 
@@ -17,6 +18,7 @@ app.set("views", process.cwd() + "/src/views")
 
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(session({
     secret: process.env.COOKIE_SECRET,
     resave: false,
@@ -30,5 +32,6 @@ app.use("/static", express.static("assets"));
 app.use("/", globalRouter);
 app.use("/users", userRouter);
 app.use("/words", wordRouter);
+app.use('/api', apiRouter);
 
 export default app;

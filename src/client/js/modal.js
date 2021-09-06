@@ -1,5 +1,6 @@
-let avatarImg = document.querySelector('.AvatarImg');
-let modal = document.querySelector(".modal");
+const avatarImg = document.querySelector('.AvatarImg');
+const modal = document.querySelector(".modal");
+const bg = document.querySelector('.bg');
 
 if (avatarImg) {
     avatarImg.onclick = () => {
@@ -10,5 +11,5 @@ if (avatarImg) {
         modal.classList.add('hidden');
     }
 
-    document.querySelector('.bg').addEventListener('click', close);
+    bg.addEventListener('click', close);
 }
