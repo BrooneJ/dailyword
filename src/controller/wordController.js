@@ -15,11 +15,11 @@ export const home = async (req, res) => {
     }
 
     try {
-        const words = await Word.find({}).sort({ createdAt: "desc" }).limit(5).skip((nowPage - 1) * 5);
+        const words = await Word.find({}).sort({ createdAt: "desc" }).limit(10).skip((nowPage - 1) * 10);
         // DB에 있는 모든 단어들을 홈화면에 보여줌
         const postCount = await Word.countDocuments();
         // count가 사라질 예정이라고 해서 count 대신 countDocuments을 사용
-        const lastPage = Math.ceil(postCount / 5);
+        const lastPage = Math.ceil(postCount / 10);
         end = end > lastPage ? lastPage : end;
 
         return res.render("home", { pageTitle: "Home", words, start, end, nowPage, lastPage });
@@ -121,3 +121,12 @@ export const deleteWord = async (req, res) => {
 }
 
 
+export const loadPages = async (req, res) => {
+    const { body: { pageCounter } } = req;
+    const words = await Word.find({}).sort({ createdAt: "desc" }).limit(10).skip((pageCounter - 1) * 10);
+    console.log(words);
+    if (words.length === 0) {
+        return res.sendStatus(404);
+    }
+    return res.status(201).json({ words });
+}

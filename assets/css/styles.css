@@ -264,14 +264,8 @@ footer nav ul li:last-child {
 
 main {
   max-width: 800px;
+  min-width: 550px;
   margin: 9vh auto;
-  width: 100%;
-}
-
-.centerContainer {
-  width: 70%;
-  text-align: left;
-  margin: 0px auto;
 }
 
 .wordContainer {
@@ -291,6 +285,11 @@ main {
 }
 .pageNum a {
   margin: 0 5px 0 5px;
+}
+
+.scroll-detecting {
+  width: 5px;
+  height: 100px;
 }
 
 form {

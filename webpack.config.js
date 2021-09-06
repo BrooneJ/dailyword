@@ -7,6 +7,7 @@ const BASE_JS = "./src/client/js/";
 module.exports = {
     entry: {
         main: BASE_JS + "main.js",
+        infiniteScroll: BASE_JS + "infiniteScroll.js",
     },
     mode: "development",
     watch: true,

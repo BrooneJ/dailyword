@@ -7,12 +7,15 @@ block content
     else
         li not found 
     
-    div.pageNum
-        if nowPage != 1
-            a(href=`?page=${nowPage - 1}`) &larr;
+
+    //- div.pageNum
+    //-     if nowPage != 1
+    //-         a(href=`?page=${nowPage - 1}`) &larr;
     
-        - for(var i=start+1; i<=end ; i++)
-            a(href=`?page=${i}`)=i
+    //-     - for(var i=start+1; i<=end ; i++)
+    //-         a(href=`?page=${i}`)=i
     
-        if nowPage != lastPage 
-            a(href=`?page=${nowPage + 1}`) &rarr;
+    //-     if nowPage != lastPage 
+    //-         a(href=`?page=${nowPage + 1}`) &rarr;
+
+    div.scroll-detecting
