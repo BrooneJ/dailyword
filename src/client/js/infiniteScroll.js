@@ -23,7 +23,7 @@ const htmlMaking = (words) => {
 
         const spanTime = document.createElement('span');
         spanTime.classList.add('wordTime');
-        spanTime.innerText = words[i].createdAt;
+        spanTime.innerText = String(words[i].createdAt).split('T')[0].replaceAll('-', '. ');
 
         const wordTitle = document.createElement('a');
         wordTitle.classList.add('wordTitle');
@@ -104,6 +104,7 @@ const loadItem = async () => {
     } catch (error) {
         console.error(error);
     }
+    container.appendChild(detector);
 }
 
 const io = new IntersectionObserver(entries => {
@@ -111,8 +112,8 @@ const io = new IntersectionObserver(entries => {
         if (hasMore) {
             loadItem();
         }
-        container.appendChild(detector);
     }
 })
-
-io.observe(detector);
+if (detector) {
+    io.observe(detector)
+}
