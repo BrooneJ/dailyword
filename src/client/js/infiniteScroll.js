@@ -90,7 +90,6 @@ const loadItem = async () => {
         });
         if (response.status === 201) {
             const { words } = await response.json();
-            console.log(words);
             if (words.length !== 0) {
                 htmlMaking(words);
             }
@@ -98,8 +97,6 @@ const loadItem = async () => {
             hasMore = false;
         }
         pageCounter++;
-        console.log(pageCounter);
-        console.log(hasMore);
 
     } catch (error) {
         console.error(error);

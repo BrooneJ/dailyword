@@ -8,6 +8,7 @@ module.exports = {
     entry: {
         main: BASE_JS + "main.js",
         infiniteScroll: BASE_JS + "infiniteScroll.js",
+        detectWord: BASE_JS + "detectWord.js",
     },
     mode: "development",
     watch: true,
