@@ -126,8 +126,35 @@ export const postChangePassword = async (req, res) => {
 
 export const see = async (req, res) => {
     const { id } = req.params;
-    const wordsData = await User.findById(id).populate({ path: "words", options: { sort: { createdAt: "desc" } } });
+    const wordsData = await User.findById(id).populate({
+        path: "words",
+        options: {
+            sort: {
+                createdAt: "desc"
+            },
+            limit: 10,
+        }
+    });
     // const wordsData = await User.findById(id).populate("words");
 
     return res.render("users/profile", { pageTitle: "My Word", words: wordsData.words });
+}
+
+export const mypageLoading = async (req, res) => {
+    const { body: { pageCounter } } = req;
+    const wordsData = await User.findById(id).populate({
+        path: "words",
+        options: {
+            sort: {
+                createdAt: "desc"
+            },
+            limit: 10,
+            skip: (pageCounter - 1) * 10,
+        }
+    });
+    console.log(wordsData);
+    if (wordsData.words.length === 0) {
+        return res.sendStatus(404);
+    }
+    return res.status(201).json({ words: wordsData.words });
 }
