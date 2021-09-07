@@ -3419,26 +3419,6 @@ eval("/* module decorator */ module = __webpack_require__.nmd(module);\nfunction
 
 /***/ }),
 
-/***/ "./src/client/js/detectWord.js":
-/*!*************************************!*\
-  !*** ./src/client/js/detectWord.js ***!
-  \*************************************/
-/***/ (() => {
-
-eval("var title = document.querySelector('.detailTitle');\nvar example = document.querySelector('.exampleSet');\n\nif (title) {\n  var titleWord = title.innerText;\n  var firstLetter = titleWord[0];\n  var lastSecondLetter = titleWord[titleWord.length - 2];\n  var lastLetter = titleWord[titleWord.length - 1];\n  var wordLength = titleWord.length;\n  var regexp;\n  var selectedWord;\n  var changeWord;\n\n  for (i = 1; i < example.childNodes[1].childNodes.length; i++) {\n    var targetWord = example.childNodes[1].childNodes[i].innerHTML;\n\n    if (wordLength === 1) {\n      // 한 글자 일 때\n      regexp = new RegExp(\"\".concat(firstLetter), 'g');\n    }\n\n    if (wordLength === 2) {\n      // 두 글자 일 때\n      regexp = new RegExp(\"\".concat(firstLetter).concat(lastLetter, \"?\"), 'g');\n    }\n\n    if (wordLength >= 3) {\n      // 세 글자 일 때\n      regexp = new RegExp(\"\".concat(firstLetter, \".*\").concat(lastSecondLetter).concat(lastLetter, \"?\"), 'g');\n    }\n\n    var _selectedWord = targetWord.match(regexp);\n\n    var _changeWord = targetWord.replace(regexp, \"<p style=\\\"color:red; display:inline-block\\\">\".concat(_selectedWord, \"</p>\"));\n\n    example.childNodes[1].childNodes[i].innerHTML = _changeWord;\n  }\n}\n\n//# sourceURL=webpack://dailyword/./src/client/js/detectWord.js?");
-
-/***/ }),
-
-/***/ "./src/client/js/infiniteScroll.js":
-/*!*****************************************!*\
-  !*** ./src/client/js/infiniteScroll.js ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-eval("function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n__webpack_require__(/*! babel-polyfill */ \"./node_modules/babel-polyfill/lib/index.js\");\n\nvar container = document.querySelector(\".centerContainer\");\nvar detector = document.querySelector('.scroll-detecting');\nvar pageCounter = 2;\nvar hasMore = true;\n\nvar htmlMaking = function htmlMaking(words) {\n  for (var i = 0; i < words.length; i++) {\n    var div = document.createElement('div');\n    div.classList.add('wordContainer');\n    container.appendChild(div);\n    var divTPT = document.createElement('div');\n    var divBox = document.createElement('div');\n    var divInfor = document.createElement('div');\n    divTPT.classList.add('wordTPT');\n    divBox.classList.add('wordBox');\n    divInfor.classList.add('wordInfor');\n    var divTP = document.createElement('div');\n    divTP.classList.add('wordTP');\n    var spanTime = document.createElement('span');\n    spanTime.classList.add('wordTime');\n    spanTime.innerText = String(words[i].createdAt).split('T')[0].replaceAll('-', '. ');\n    var wordTitle = document.createElement('a');\n    wordTitle.classList.add('wordTitle');\n    wordTitle.setAttribute('href', \"/words/\".concat(words[i]._id));\n    wordTitle.innerText = words[i].title;\n    var wordPronun = document.createElement('span');\n    wordPronun.classList.add('wordPronun');\n    wordPronun.innerText = '[ ' + words[i].pronun + ' ]';\n    var wordMean = document.createElement('div');\n    wordMean.classList.add('wordMean');\n    var meanSpan1 = document.createElement('span');\n    meanSpan1.innerText = '의미:';\n    var meanSpan2 = document.createElement('span');\n    meanSpan2.innerText = words[i].mean[0];\n    var wordExample = document.createElement('div');\n    wordExample.classList.add('wordExample');\n    var examSpan1 = document.createElement('span');\n    examSpan1.innerText = '예문:';\n    var examSpan2 = document.createElement('span');\n    examSpan2.innerText = words[i].example[0];\n    var inforSpan1 = document.createElement('span');\n    var inforSpan2 = document.createElement('span');\n    var inforSpan3 = document.createElement('span');\n    inforSpan1.innerText = '출처:' + words[i].from;\n    var inforA = document.createElement('a');\n    inforA.setAttribute('href', \"/words/\".concat(words[i]._id));\n    inforA.innerText = '자세히 보기 →';\n    div.appendChild(divTPT);\n    divTPT.appendChild(divTP);\n    divTP.appendChild(wordTitle);\n    divTP.appendChild(wordPronun);\n    divTPT.appendChild(spanTime);\n    div.appendChild(divBox);\n    divBox.appendChild(wordMean);\n    wordMean.appendChild(meanSpan1);\n    wordMean.appendChild(meanSpan2);\n    divBox.appendChild(wordExample);\n    wordExample.appendChild(examSpan1);\n    wordExample.appendChild(examSpan2);\n    ;\n    div.appendChild(divInfor);\n    divInfor.appendChild(inforSpan1);\n    divInfor.appendChild(inforSpan2);\n    divInfor.appendChild(inforSpan3);\n    inforSpan3.appendChild(inforA);\n  }\n};\n\nvar loadItem = /*#__PURE__*/function () {\n  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {\n    var response, _yield$response$json, words;\n\n    return regeneratorRuntime.wrap(function _callee$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            _context.prev = 0;\n            _context.next = 3;\n            return fetch('/api/pages', {\n              method: \"POST\",\n              headers: {\n                \"Content-Type\": \"application/json\"\n              },\n              body: JSON.stringify({\n                pageCounter: pageCounter\n              })\n            });\n\n          case 3:\n            response = _context.sent;\n\n            if (!(response.status === 201)) {\n              _context.next = 12;\n              break;\n            }\n\n            _context.next = 7;\n            return response.json();\n\n          case 7:\n            _yield$response$json = _context.sent;\n            words = _yield$response$json.words;\n\n            if (words.length !== 0) {\n              htmlMaking(words);\n            }\n\n            _context.next = 13;\n            break;\n\n          case 12:\n            hasMore = false;\n\n          case 13:\n            pageCounter++;\n            _context.next = 19;\n            break;\n\n          case 16:\n            _context.prev = 16;\n            _context.t0 = _context[\"catch\"](0);\n            console.error(_context.t0);\n\n          case 19:\n            container.appendChild(detector);\n\n          case 20:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, _callee, null, [[0, 16]]);\n  }));\n\n  return function loadItem() {\n    return _ref.apply(this, arguments);\n  };\n}();\n\nvar io = new IntersectionObserver(function (entries) {\n  if (entries.some(function (entry) {\n    return entry.intersectionRatio > 0;\n  })) {\n    if (hasMore) {\n      loadItem();\n    }\n  }\n});\n\nif (detector) {\n  io.observe(detector);\n}\n\n//# sourceURL=webpack://dailyword/./src/client/js/infiniteScroll.js?");
-
-/***/ }),
-
 /***/ "./src/client/js/infiniteScrollMyPage.js":
 /*!***********************************************!*\
   !*** ./src/client/js/infiniteScrollMyPage.js ***!
@@ -3446,38 +3426,6 @@ eval("function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg)
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 eval("function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n__webpack_require__(/*! babel-polyfill */ \"./node_modules/babel-polyfill/lib/index.js\");\n\nvar container = document.querySelector(\".centerContainer\");\nvar detector = document.querySelector('.scroll-mydetecting');\nvar pageCounter = 2;\nvar hasMore = true;\n\nvar htmlMaking = function htmlMaking(words) {\n  for (var i = 0; i < words.length; i++) {\n    var div = document.createElement('div');\n    div.classList.add('wordContainer');\n    container.appendChild(div);\n    var divTPT = document.createElement('div');\n    var divBox = document.createElement('div');\n    var divInfor = document.createElement('div');\n    divTPT.classList.add('wordTPT');\n    divBox.classList.add('wordBox');\n    divInfor.classList.add('wordInfor');\n    var divTP = document.createElement('div');\n    divTP.classList.add('wordTP');\n    var spanTime = document.createElement('span');\n    spanTime.classList.add('wordTime');\n    spanTime.innerText = String(words[i].createdAt).split('T')[0].replaceAll('-', '. ');\n    var wordTitle = document.createElement('a');\n    wordTitle.classList.add('wordTitle');\n    wordTitle.setAttribute('href', \"/words/\".concat(words[i]._id));\n    wordTitle.innerText = words[i].title;\n    var wordPronun = document.createElement('span');\n    wordPronun.classList.add('wordPronun');\n    wordPronun.innerText = '[ ' + words[i].pronun + ' ]';\n    var wordMean = document.createElement('div');\n    wordMean.classList.add('wordMean');\n    var meanSpan1 = document.createElement('span');\n    meanSpan1.innerText = '의미:';\n    var meanSpan2 = document.createElement('span');\n    meanSpan2.innerText = words[i].mean[0];\n    var wordExample = document.createElement('div');\n    wordExample.classList.add('wordExample');\n    var examSpan1 = document.createElement('span');\n    examSpan1.innerText = '예문:';\n    var examSpan2 = document.createElement('span');\n    examSpan2.innerText = words[i].example[0];\n    var inforSpan1 = document.createElement('span');\n    var inforSpan2 = document.createElement('span');\n    var inforSpan3 = document.createElement('span');\n    inforSpan1.innerText = '출처:' + words[i].from;\n    var inforA = document.createElement('a');\n    inforA.setAttribute('href', \"/words/\".concat(words[i]._id));\n    inforA.innerText = '자세히 보기 →';\n    div.appendChild(divTPT);\n    divTPT.appendChild(divTP);\n    divTP.appendChild(wordTitle);\n    divTP.appendChild(wordPronun);\n    divTPT.appendChild(spanTime);\n    div.appendChild(divBox);\n    divBox.appendChild(wordMean);\n    wordMean.appendChild(meanSpan1);\n    wordMean.appendChild(meanSpan2);\n    divBox.appendChild(wordExample);\n    wordExample.appendChild(examSpan1);\n    wordExample.appendChild(examSpan2);\n    ;\n    div.appendChild(divInfor);\n    divInfor.appendChild(inforSpan1);\n    divInfor.appendChild(inforSpan2);\n    divInfor.appendChild(inforSpan3);\n    inforSpan3.appendChild(inforA);\n  }\n};\n\nvar loadItem = /*#__PURE__*/function () {\n  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {\n    var url_string, id, response, _yield$response$json, words;\n\n    return regeneratorRuntime.wrap(function _callee$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            url_string = window.location.href;\n            id = url_string.split('users/')[1];\n            _context.prev = 2;\n            _context.next = 5;\n            return fetch(\"/api/\".concat(id, \"/myPages\"), {\n              method: \"POST\",\n              headers: {\n                \"Content-Type\": \"application/json\"\n              },\n              body: JSON.stringify({\n                pageCounter: pageCounter\n              })\n            });\n\n          case 5:\n            response = _context.sent;\n\n            if (!(response.status === 201)) {\n              _context.next = 14;\n              break;\n            }\n\n            _context.next = 9;\n            return response.json();\n\n          case 9:\n            _yield$response$json = _context.sent;\n            words = _yield$response$json.words;\n\n            if (words.length !== 0) {\n              htmlMaking(words);\n            }\n\n            _context.next = 15;\n            break;\n\n          case 14:\n            hasMore = false;\n\n          case 15:\n            pageCounter++;\n            _context.next = 21;\n            break;\n\n          case 18:\n            _context.prev = 18;\n            _context.t0 = _context[\"catch\"](2);\n            console.error(_context.t0);\n\n          case 21:\n            container.appendChild(detector);\n\n          case 22:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, _callee, null, [[2, 18]]);\n  }));\n\n  return function loadItem() {\n    return _ref.apply(this, arguments);\n  };\n}();\n\nvar io = new IntersectionObserver(function (entries) {\n  if (entries.some(function (entry) {\n    return entry.intersectionRatio > 0;\n  })) {\n    if (hasMore) {\n      loadItem();\n    }\n  }\n});\n\nif (detector) {\n  io.observe(detector);\n}\n\n//# sourceURL=webpack://dailyword/./src/client/js/infiniteScrollMyPage.js?");
-
-/***/ }),
-
-/***/ "./src/client/js/main.js":
-/*!*******************************!*\
-  !*** ./src/client/js/main.js ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/styles.scss */ \"./src/client/scss/styles.scss\");\n/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modal */ \"./src/client/js/modal.js\");\n/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modal__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _infiniteScroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./infiniteScroll */ \"./src/client/js/infiniteScroll.js\");\n/* harmony import */ var _infiniteScroll__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_infiniteScroll__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _infiniteScrollMyPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./infiniteScrollMyPage */ \"./src/client/js/infiniteScrollMyPage.js\");\n/* harmony import */ var _infiniteScrollMyPage__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_infiniteScrollMyPage__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _detectWord__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./detectWord */ \"./src/client/js/detectWord.js\");\n/* harmony import */ var _detectWord__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_detectWord__WEBPACK_IMPORTED_MODULE_4__);\n\n\n\n\n\n\n//# sourceURL=webpack://dailyword/./src/client/js/main.js?");
-
-/***/ }),
-
-/***/ "./src/client/js/modal.js":
-/*!********************************!*\
-  !*** ./src/client/js/modal.js ***!
-  \********************************/
-/***/ (() => {
-
-eval("var avatarImg = document.querySelector('.AvatarImg');\nvar modal = document.querySelector(\".modal\");\nvar bg = document.querySelector('.bg');\n\nif (avatarImg) {\n  avatarImg.onclick = function () {\n    modal.classList.toggle('hidden');\n  };\n\n  var close = function close() {\n    modal.classList.add('hidden');\n  };\n\n  bg.addEventListener('click', close);\n}\n\n//# sourceURL=webpack://dailyword/./src/client/js/modal.js?");
-
-/***/ }),
-
-/***/ "./src/client/scss/styles.scss":
-/*!*************************************!*\
-  !*** ./src/client/scss/styles.scss ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://dailyword/./src/client/scss/styles.scss?");
 
 /***/ })
 
@@ -3511,30 +3459,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -3545,22 +3469,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 				if (typeof window === 'object') return window;
 /******/ 			}
 /******/ 		})();
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/node module decorator */
@@ -3577,7 +3485,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/client/js/main.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/client/js/infiniteScrollMyPage.js");
 /******/ 	
 /******/ })()
 ;

@@ -1,7 +1,7 @@
 require("babel-polyfill");
 
 const container = document.querySelector(".centerContainer");
-const detector = document.querySelector('.scroll-detecting');
+const detector = document.querySelector('.scroll-mydetecting');
 let pageCounter = 2;
 let hasMore = true;
 
@@ -80,10 +80,12 @@ const htmlMaking = (words) => {
 
 
 const loadItem = async () => {
+    const url_string = window.location.href;
+    const id = url_string.split('users/')[1];
     try {
-        const response = await fetch('/api/myPages', {
+        const response = await fetch(`/api/${id}/myPages`, {
             method: "POST",
-            headers: {
+             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ pageCounter }),
@@ -111,6 +113,7 @@ const io = new IntersectionObserver(entries => {
         }
     }
 })
+
 if (detector) {
     io.observe(detector)
 }

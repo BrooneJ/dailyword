@@ -142,6 +142,7 @@ export const see = async (req, res) => {
 
 export const mypageLoading = async (req, res) => {
     const { body: { pageCounter } } = req;
+    const { id } = req.params;
     const wordsData = await User.findById(id).populate({
         path: "words",
         options: {
@@ -152,7 +153,6 @@ export const mypageLoading = async (req, res) => {
             skip: (pageCounter - 1) * 10,
         }
     });
-    console.log(wordsData);
     if (wordsData.words.length === 0) {
         return res.sendStatus(404);
     }
