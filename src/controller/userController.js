@@ -135,7 +135,6 @@ export const see = async (req, res) => {
             limit: 10,
         }
     });
-    // const wordsData = await User.findById(id).populate("words");
 
     return res.render("users/profile", { pageTitle: "My Word", words: wordsData.words });
 }

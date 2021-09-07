@@ -81,6 +81,7 @@ const htmlMaking = (words) => {
 
 const loadItem = async () => {
     try {
+        // 백엔드에 다음 페이지를 요구하는 post req를 보냄
         const response = await fetch('/api/pages', {
             method: "POST",
             headers: {
@@ -88,20 +89,21 @@ const loadItem = async () => {
             },
             body: JSON.stringify({ pageCounter }),
         });
+        // 다음 페이지가 있으면 201 응답과 json데이터를 받음
         if (response.status === 201) {
             const { words } = await response.json();
             if (words.length !== 0) {
                 htmlMaking(words);
             }
-        } else {
-            hasMore = false;
+        } else { // 201 응답이 아니라면 더이상 마지막 페이지에 도달했음을 알 수 있음
+            hasMore = false; // 더이상 데이터가 없으므로 false 처리
         }
         pageCounter++;
 
     } catch (error) {
         console.error(error);
     }
-    container.appendChild(detector);
+    container.appendChild(detector); // 마지막 페이지에 detector를 삽입
 }
 
 const io = new IntersectionObserver(entries => {
