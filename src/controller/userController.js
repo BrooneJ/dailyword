@@ -54,7 +54,7 @@ export const postJoin = async (req, res) => {
 
     try {
         await User.create({
-            avatarUrl: "https://aui.atlassian.com/aui/latest/docs/images/avatar-person.svg",
+            avatarUrl: "https://dailyword-hw.s3.ap-northeast-2.amazonaws.com/77900f4874e34f460a70186b1e11e925",
             // avatarUrl: "uploads/avatars/default_img.png",
             username,
             email,
