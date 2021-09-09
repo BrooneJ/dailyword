@@ -11,8 +11,6 @@ module.exports = {
         infiniteScrollMyPage: BASE_JS + "infiniteScrollMyPage.js",
         detectWord: BASE_JS + "detectWord.js",
     },
-    mode: "development",
-    watch: true,
     plugins: [new MiniCssExtractPlugin({
         filename: "css/styles.css",
     })],

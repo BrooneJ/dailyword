@@ -1,5 +1,3 @@
-require("babel-polyfill");
-
 const container = document.querySelector(".centerContainer");
 const detector = document.querySelector('.scroll-detecting');
 let pageCounter = 2;

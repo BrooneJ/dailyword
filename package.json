@@ -4,8 +4,12 @@
   "description": "Study foreign language and record",
   "main": "index.js",
   "scripts": {
+    "start": "node build/init.js",
+    "build": "npm run build:server && npm run build:assets",
+    "build:server": "babel src -d build",
+    "build:assets": "webpack --mode=production",
     "dev:server": "nodemon",
-    "dev:assets": "webpack"
+    "dev:assets": "webpack --mode=development -w"
   },
   "repository": {
     "type": "git",
@@ -18,20 +22,24 @@
   },
   "homepage": "https://github.com/HyungwonJin/dailyword#readme",
   "dependencies": {
-    "@babel/core": "^7.14.8",
     "@babel/node": "^7.14.9",
     "bcrypt": "^5.0.1",
     "connect-mongo": "^4.4.1",
+    "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-flash": "0.0.2",
     "express-session": "^1.17.2",
     "mongoose": "^5.13.5",
     "morgan": "^1.10.0",
     "multer": "^1.4.3",
     "nodemon": "^2.0.12",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
+    "@babel/cli": "^7.15.4",
+    "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.14.9",
     "babel-loader": "^8.2.2",
     "babel-polyfill": "^6.26.0",

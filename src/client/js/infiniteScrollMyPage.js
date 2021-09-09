@@ -1,5 +1,3 @@
-require("babel-polyfill");
-
 const container = document.querySelector(".centerContainer");
 const detector = document.querySelector('.scroll-mydetecting');
 let pageCounter = 2;
@@ -85,7 +83,7 @@ const loadItem = async () => {
     try {
         const response = await fetch(`/api/${id}/myPages`, {
             method: "POST",
-             headers: {
+            headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ pageCounter }),
