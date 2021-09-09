@@ -5,9 +5,9 @@ import aws from "aws-sdk";
 const s3 = new aws.S3({
     credentials: {
         accessKeyId: process.env.AWS_ID,
-        secretAccessKey: process.env.AWV_SECRET,
-    }
-})
+        secretAccessKey: process.env.AWS_SECRET,
+    },
+});
 
 const multerUploader = multerS3({
     s3: s3,
