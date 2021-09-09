@@ -170,6 +170,10 @@ footer nav ul li:last-child {
   clip-path: circle(0% at 71% 98%);
 }
 
+.AvatarImg {
+  border-radius: 50%;
+}
+
 .wordTPT {
   display: grid;
   grid-template-columns: 10fr max-content;

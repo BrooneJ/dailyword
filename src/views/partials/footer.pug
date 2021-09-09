@@ -13,7 +13,10 @@ footer
                     if loggedInUser.avatarUrl === ""
                         span 😀
                     else 
-                        img.AvatarImg(src=loggedInUser.avatarUrl width="50", height="50")
+                        if isHeroku 
+                            img.AvatarImg(src=loggedInUser.avatarUrl width="50", height="50")
+                        else 
+                            img.AvatarImg(src="/" + loggedInUser.avatarUrl width="50", height="50")
                         div.modal.hidden
                             div.bg
                             div.modalBox

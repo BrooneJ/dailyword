@@ -9,6 +9,8 @@ const s3 = new aws.S3({
     },
 });
 
+const isHeroku = process.env.NODE_ENV === "production";
+
 const multerUploader = multerS3({
     s3: s3,
     bucket: 'dailyword-hw',
@@ -18,6 +20,7 @@ const multerUploader = multerS3({
 export const localsMiddleware = (req, res, next) => {
     res.locals.loggedIn = Boolean(req.session.loggedIn);
     res.locals.loggedInUser = req.session.user;
+    res.locals.isHeroku = isHeroku;
     next();
 }
 
@@ -41,5 +44,5 @@ export const avatarUpload = multer({
     dest: "uploads/avatars", limits: {
         fileSize: 3000000,
     },
-    storage: multerUploader,
+    storage: isHeroku ? multerUploader : undefined,
 })
