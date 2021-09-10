@@ -13,13 +13,13 @@ if (title) {
     for (i = 1; i < example.childNodes[1].childNodes.length; i++) {
         let targetWord = example.childNodes[1].childNodes[i].innerHTML;
         if (wordLength === 1) { // 한 글자 일 때
-            regexp = new RegExp(`${firstLetter}`, 'g');
+            regexp = new RegExp(`${firstLetter}`, 'gi');
         }
         if (wordLength === 2) { // 두 글자 일 때
-            regexp = new RegExp(`${firstLetter}${lastLetter}?`, 'g');
+            regexp = new RegExp(`${firstLetter}${lastLetter}?`, 'gi');
         }
         if (wordLength >= 3) { // 세 글자 일 때
-            regexp = new RegExp(`${firstLetter}.*${lastSecondLetter}${lastLetter}?`, 'g');
+            regexp = new RegExp(`${firstLetter}.*${lastSecondLetter}${lastLetter}?`, 'gi');
         }
         const selectedWord = targetWord.match(regexp);
         let changeWord = targetWord.replace(regexp, `<p style="color:red; display:inline-block">${selectedWord}</p>`);
