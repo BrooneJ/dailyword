@@ -16,10 +16,10 @@ if (title) {
             regexp = new RegExp(`${firstLetter}`, 'gi');
         }
         if (wordLength === 2) { // 두 글자 일 때
-            regexp = new RegExp(`${firstLetter}${lastLetter}?`, 'gi');
+            regexp = new RegExp(`${firstLetter}${lastLetter}?(いた)?(り)?(った)?`, 'gi');
         }
         if (wordLength >= 3) { // 세 글자 일 때
-            regexp = new RegExp(`${firstLetter}.*${lastSecondLetter}${lastLetter}?`, 'gi');
+            regexp = new RegExp(`${firstLetter}.*${lastSecondLetter}${lastLetter}?(いた)?(り)?(った)?`, 'gi');
         }
         const selectedWord = targetWord.match(regexp);
         let changeWord = targetWord.replace(regexp, `<p style="color:red; display:inline-block">${selectedWord}</p>`);
