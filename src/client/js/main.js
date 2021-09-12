@@ -4,3 +4,4 @@ import "./modal";
 import "./infiniteScroll";
 import "./infiniteScrollMyPage";
 import './detectWord';
+import "./activeNav";
