@@ -42,10 +42,10 @@ deployments: <a href="https://dailywords-hw.herokuapp.com/">https://dailywords-h
 ---
 ### ✅ Home            
 ---
-全てのユーザーが登録した単語や例文を見ることができます。        
+Homeでは全てのユーザーが登録した単語や例文を見ることができます。        
 ユーザーが使いやすいように「無限スクロール」を導入しました。        
 <p align='center'>
-    <img src="https://i.imgur.com/szZwCON.gif" width="400"/>
+    <img src="https://i.imgur.com/SRTkZpi.gif" width="400"/>
 </p>     
 単語や詳しく見る(자세히보기→)をクリックするとクリックした単語の詳細を見ることができます。
 
