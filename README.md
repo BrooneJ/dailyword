@@ -43,25 +43,27 @@ deployments: <a href="https://dailywords-hw.herokuapp.com/">https://dailywords-h
 ### Home        
 全てのユーザーが登録した単語や例文を見ることができます。
 <p align='center'>
-    <img src="https://i.imgur.com/dl1tqbE.png" width="200"/>
+    <img src="https://i.imgur.com/szZwCON.gif" width="400"/>
 </p>     
 ユーザーが使いやすいように「無限スクロール」を導入しました。        
 <p align='center'>
-    <img src="https://i.imgur.com/tYIosvU.png" width="200"/>
+    <img src="https://i.imgur.com/tYIosvU.png" width="400"/>
 </p>     
 単語や詳しく見るをクリックするとクリックした単語の詳細が見えます。      
 
 わかりやすく例文の該当単語は赤字で示しました。      
+下の方の「修正する」と「削除する」ボタンをクリックし、修正や削除ができます。        
+
 
 ### Search      
 検索するとデータベースから単語を探します。
 <p align='center'>
-    <img src="https://i.imgur.com/7QSvcQD.png" width="200"/>
+    <img src="https://i.imgur.com/7QSvcQD.png" width="400"/>
 </p>     
 
 ### Upload
 <p align='center'>
-    <img src="https://i.imgur.com/LLWK1aZ.png" width="200"/>
+    <img src="https://i.imgur.com/LLWK1aZ.png" width="400"/>
 </p>     
 上から  
 
