@@ -38,30 +38,33 @@ deployments: <a href="https://dailywords-hw.herokuapp.com/">https://dailywords-h
     <img src="https://i.imgur.com/7B7BiQo.png" width="400"/>
 </p>
 
-## 各ページ   
+## 🌟 各ページ   
 ---
-### Home        
-全てのユーザーが登録した単語や例文を見ることができます。
+### ✅ Home            
+---
+全てのユーザーが登録した単語や例文を見ることができます。        
+ユーザーが使いやすいように「無限スクロール」を導入しました。        
 <p align='center'>
     <img src="https://i.imgur.com/szZwCON.gif" width="400"/>
 </p>     
-ユーザーが使いやすいように「無限スクロール」を導入しました。        
-<p align='center'>
-    <img src="https://i.imgur.com/tYIosvU.png" width="400"/>
-</p>     
-単語や詳しく見るをクリックするとクリックした単語の詳細が見えます。      
+単語や詳しく見る(자세히보기→)をクリックするとクリックした単語の詳細を見ることができます。
 
-わかりやすく例文の該当単語は赤字で示しました。      
+わかりやすく単語を例文に赤字で示しました。      
 下の方の「修正する」と「削除する」ボタンをクリックし、修正や削除ができます。        
+<p align='center'>
+    <img src="https://i.imgur.com/bhFGELO.gif" width="400"/>
+</p>     
 
 
-### Search      
+### ✅ Search    
+---  
 検索するとデータベースから単語を探します。
 <p align='center'>
     <img src="https://i.imgur.com/7QSvcQD.png" width="400"/>
 </p>     
 
-### Upload
+### ✅ Upload
+---
 <p align='center'>
     <img src="https://i.imgur.com/LLWK1aZ.png" width="400"/>
 </p>     
@@ -72,15 +75,37 @@ deployments: <a href="https://dailywords-hw.herokuapp.com/">https://dailywords-h
 ーーーーーーーーーー        
 単語を入力してください。            
 ーーーーーーーーーー        
-発音を入力してください。             
+発音を入力してください。（選択）             
 ーーーーーーーーーー       
 意味を入力してください。             
 ーーーーーーーーーー       
 例文を入力してください。             
 ーーーーーーーーーー       
-出典を入力してください。             
+出典を入力してください。（選択）             
 ーーーーーーーーーー       
 登録        
 
-になります。
+になります。        
 
+### ✅ ユーザーページ
+---
+<p align='center'>
+    <img src="https://i.imgur.com/eAzhSYd.gif" width="400"/>
+</p>     
+My wordでは自分が登録した全ての単語が見れます。     
+<br/>       
+<br/>       
+Edit Profileでは自分のユーザーネームやEメールやパスワード、アイコンを変更することができます。
+<p align='center'>
+    <img src="https://i.imgur.com/xLe6Juv.png" width="400"/>
+</p>
+アイコンはAWS S3に保存されます。
+<p align='center'>
+    <img src="https://i.imgur.com/EbnqWOL.png" width="800"/>
+</p>
+<br/>
+<br/>
+Logoutをクリックするとlogoutすることができます。
+<p align='center'>
+    <img src="https://i.imgur.com/XJ3q83T.gif" width="400"/>
+</p>     
