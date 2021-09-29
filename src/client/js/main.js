@@ -5,3 +5,4 @@ import "./infiniteScroll";
 import "./infiniteScrollMyPage";
 import './detectWord';
 import "./activeNav";
+import "./preventClick";
