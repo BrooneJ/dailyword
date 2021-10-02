@@ -6,3 +6,4 @@ import "./infiniteScrollMyPage";
 import './detectWord';
 import "./activeNav";
 import "./preventClick";
+import "./selectedLanguage";

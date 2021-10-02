@@ -4,6 +4,7 @@ block content
     if errorMessage
         span=errorMessage
     form(method="POST")
+        label(for="language") 외국어 → 모국어 
         select(name="language") 
             option(value="kj") Korean → Japanese
             option(value="ke") Korean → English
@@ -14,6 +15,8 @@ block content
         input(type="text", placeholder="단어를 입력하세요.", name="title", required)
         input(type="text", placeholder="발음을 입력하세요.(선택)", name="pronun")
         input(type="text", placeholder="의미를 입력하세요.", name="mean", required)
-        textarea(placeholder="예문을 입력하세요.", name="example", cols="30", rows="10")
+        <br/>
+        label(for="mean") ','를 기준으로 여러 의미를 등록할 수 있습니다.
+        textarea(placeholder="예문을 입력하세요.(','를 기준으로 서로 다른 문장을 구분합니다.)", name="example", cols="30", rows="10")
         input(type="text", placeholder="출처(선택)", name="from")
         input(type="submit", value="등록")

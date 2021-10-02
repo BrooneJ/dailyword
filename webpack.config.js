@@ -12,6 +12,7 @@ module.exports = {
         detectWord: BASE_JS + "detectWord.js",
         activeNav: BASE_JS + "activeNav.js",
         preventClick: BASE_JS + "preventClick.js",
+        selectedLanguage: BASE_JS + "selectedLanguage.js",
     },
     plugins: [new MiniCssExtractPlugin({
         filename: "css/styles.css",
