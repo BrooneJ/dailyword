@@ -50,7 +50,7 @@ export const getEdit = async (req, res) => {
 }
 
 export const postEdit = async (req, res) => {
-    const { title, pronun, mean, example, from } = req.body;
+    const { language, title, pronun, mean, example, from } = req.body;
     const { id } = req.params;
 
     const word = await Word.exists({ _id: id });
@@ -60,6 +60,7 @@ export const postEdit = async (req, res) => {
     }
 
     await Word.findByIdAndUpdate(id, {
+        language,
         title,
         pronun,
         mean: mean.split(","),
