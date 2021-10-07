@@ -18,12 +18,16 @@ export const search = async (req, res) => {
         words = await Word.find({
             $or: [{
                 title: {
-                    $regex: new RegExp(`^${keyword}`, "i"),
+                    $regex: new RegExp(`${keyword}`, "i"),
                     // keyword로 시작하는 부분만 찾음
                 }
             }, {
                 pronun: {
-                    $regex: new RegExp(`^${keyword}`, "i"),
+                    $regex: new RegExp(`${keyword}`, "i"),
+                }
+            }, {
+                example: {
+                    $regex: new RegExp(`${keyword}`, "i"),
                 }
             }
             ]
